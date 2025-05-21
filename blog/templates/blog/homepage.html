@@ -3,14 +3,20 @@
 
 {% block title %}Homepage{% endblock %}
 
+{% block styles %}{% endblock %}
+
 {% block content %}
-<div class="box-header">
-    <h1>Welcome to DjLog!</h1>
-    <p>DjLog is a simple blog project built with django.</p>
-</div>
-<hr class="box-hr">
-<div class="box">
-    <h2><a href="#">Post #1</a></h2>
-    <p>The tagline for post #1.</p>
-</div>
+    <div class="box-header">
+        <h1>Welcome to DjLog!</h1>
+        <p>DjLog is a simple blog project built with django.</p>
+    </div>
+
+    <hr class="box-hr">
+
+    {% for post_id, post_title, post_tagline in arguments %}
+        <div class="box">
+            <h2><a href="/post/{{ post_id }}">{{ post_title }}</a></h2>
+            <p>{{ post_tagline }}</p>
+        </div>
+    {% endfor %}
 {% endblock %}

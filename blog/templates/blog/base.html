@@ -9,11 +9,13 @@
     
     <link rel="stylesheet" href="{% static 'blog/base.css' %}">
     <link rel="stylesheet" href="{% static 'blog/general.css' %}">
+    {% block styles %}{% endblock %}
 </head>
 <body>
     <div id="main">
         <div id="navigation">
-            <div id="login">Login</div>
+            <a href="/"><div id="home" class="navigation-button">Home</div></a>
+            <a href="/admin"><div id="login" class="navigation-button">Login</div></a>
         </div>
         <div id="content-wrapper">
             <div id="content">

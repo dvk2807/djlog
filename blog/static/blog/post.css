@@ -1,0 +1,13 @@
+#header{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-gap: 32px;
+}
+#header-title, #header-author{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+#header-tagline, #header-date{
+    margin-top: 8px;
+    margin-bottom: 0;
+}

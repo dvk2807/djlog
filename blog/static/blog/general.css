@@ -13,9 +13,30 @@ hr{
 a{
     text-decoration: none;
 }
+img{
+    background-color: #ffffff;
 
+    border: solid 1px #202020;
+}
+
+.navigation-button{
+    padding: 8px;
+    
+    position: absolute;
+    top: 50%;
+    
+    transform: translateY(-50%);
+
+    border: solid 1px #f0f0f0;
+
+    color: #f0f0f0;
+
+    user-select: none;
+}
 .box{
     padding: 16px 32px;
+
+    overflow: hidden;
 
     border: solid 1px #808080;
     background-color: #ffffff;
