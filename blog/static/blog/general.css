@@ -1,0 +1,31 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #202020;
+}
+body{
+    margin: 0;
+}
+
+hr{
+    border: none 0;
+    border-top: solid 1px #202020;
+}
+a{
+    text-decoration: none;
+}
+
+.box{
+    padding: 16px 32px;
+
+    border: solid 1px #808080;
+    background-color: #ffffff;
+}
+.box-header > *:last-child{
+    margin-bottom: 0;
+}
+.box-hr{
+    margin: 0;
+    
+    border: none 0;
+    border-top: solid 1px #808080;
+}

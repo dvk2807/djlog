@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DjLog | {% block title %}{% endblock %}</title>
+    
+    <link rel="stylesheet" href="{% static 'blog/base.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/general.css' %}">
+</head>
+<body>
+    <div id="main">
+        <div id="navigation">
+            <div id="login">Login</div>
+        </div>
+        <div id="content-wrapper">
+            <div id="content">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
