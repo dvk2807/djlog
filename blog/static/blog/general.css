@@ -41,6 +41,9 @@ img{
     border: solid 1px #808080;
     background-color: #ffffff;
 }
+.box-header > *:first-child{
+    margin-top: 0;
+}
 .box-header > *:last-child{
     margin-bottom: 0;
 }

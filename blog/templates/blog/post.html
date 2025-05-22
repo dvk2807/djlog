@@ -4,22 +4,33 @@
 {% block title %}{{ post_title }}{% endblock %}
 
 {% block styles %}
-<link rel="stylesheet" href="{% static 'blog/post.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/post.css' %}">
 {% endblock %}
 
 {% block content %}
-<div class="box-header" id="header">
-    <div>
-        <h1 id="header-title">{{ post_title }}</h1>
-        <p id="header-tagline">{{ post_tagline }}</p>
+    <div class="box-header" id="header">
+        <div>
+            <h1 id="header-title">{{ post_title }}</h1>
+            <p id="header-tagline">{{ post_tagline }}</p>
+        </div>
+        <div>
+            <p id="header-author">by <i>{{ post_author }}</i></p>
+            <p id="header-date">on {{ post_date }}</p>
+        </div>
     </div>
-    <div>
-        <p id="header-author">by <i>{{ post_author }}</i></p>
-        <p id="header-date">on {{ post_date }}</p>
+
+    <div class="box">
+        {{ post_content | safe }}
     </div>
-</div>
-<hr class="box-hr">
-<div class="box">
-    {{ post_content | safe }}
-</div>
+
+    <div class="box-header">
+        <h2>Comments</h2>
+    </div>
+
+    {% for comment_username, comment_content in post_comments_arguments %}
+        <div class="box">
+            <h3><i>{{ comment_username }}</i></h3>
+            <p>{{ comment_content }}</p>
+        </div>
+    {% endfor %}
 {% endblock %}
