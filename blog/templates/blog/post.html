@@ -9,11 +9,11 @@
 
 {% block content %}
     <div class="box-header" id="header">
-        <div>
+        <div id="header-left">
             <h1 id="header-title">{{ post_title }}</h1>
             <p id="header-tagline">{{ post_tagline }}</p>
         </div>
-        <div>
+        <div id="header-right">
             <p id="header-author">by <i>{{ post_author }}</i></p>
             <p id="header-date">on {{ post_date }}</p>
         </div>
@@ -23,14 +23,29 @@
         {{ post_content | safe }}
     </div>
 
-    <div class="box-header">
-        <h2>Comments</h2>
+    <div class="box">
+        <h2>Leave a comment</h2>
+        <form method="post" id="comment-form">
+            {% csrf_token %}
+            {{ post_comment_form }}
+            <button type="submit" class="button">Post</button>
+        </form>
     </div>
 
-    {% for comment_username, comment_content in post_comments_arguments %}
+    <div class="box-header">
+        <h2>Comments ({{ post_comments_arguments|length }})</h2>
+    </div>
+    
+    {% if post_comments_arguments|length == 0 %}
         <div class="box">
-            <h3><i>{{ comment_username }}</i></h3>
-            <p>{{ comment_content }}</p>
+            <h3>No comments here yet...</h3>
         </div>
-    {% endfor %}
+    {% else %}
+        {% for comment_username, comment_content in post_comments_arguments %}
+            <div class="box">
+                <h3><i>{{ comment_username }}</i></h3>
+                <p>{{ comment_content }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
 {% endblock %}

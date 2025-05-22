@@ -1,13 +1,32 @@
 #header{
     display: grid;
     grid-template-columns: 1fr auto;
-    grid-gap: 32px;
+    gap: 32px;
+}
+#header *{
+    word-break: break-all;
+}
+#header-right{
+    text-align: end;
 }
 #header-title, #header-author{
     margin-top: 0;
-    margin-bottom: 0;
 }
 #header-tagline, #header-date{
-    margin-top: 8px;
     margin-bottom: 0;
+}
+#comment-form textarea{
+    width: calc(100% - 2 * 8px);
+    height: 128px;
+
+    padding: 8px;
+
+    background-color: #f0f0f0;
+
+    border: solid 1px #202020;
+
+    resize: none;
+}
+#comment-form button{
+    margin-top: 24px;
 }

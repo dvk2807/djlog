@@ -34,17 +34,17 @@ img{
     user-select: none;
 }
 .box{
-    padding: 16px 32px;
+    padding: 24px 32px;
 
-    overflow: hidden;
+    word-wrap: break-word;
 
     border: solid 1px #808080;
     background-color: #ffffff;
 }
-.box-header > *:first-child{
+.box-header > *:first-child, .box > *:first-child{
     margin-top: 0;
 }
-.box-header > *:last-child{
+.box-header > *:last-child, .box > *:last-child{
     margin-bottom: 0;
 }
 .box-hr{
@@ -52,4 +52,13 @@ img{
     
     border: none 0;
     border-top: solid 1px #808080;
+}
+
+.button {
+    padding: 4px 8px;
+
+    background-color: #f0f0f0;
+
+    border: solid 1px #202020;
+    border-radius: 0;
 }
