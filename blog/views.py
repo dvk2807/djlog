@@ -1,12 +1,19 @@
 from django.shortcuts import get_object_or_404, redirect, render
+from django.contrib.auth import logout as logout_user
+from django.contrib.auth import login as login_user
 
 from blog.models import Post, Comment
+
 from blog.forms import CommentForm
+from django.contrib.auth.forms import UserCreationForm
 
 def homepage(request):
     posts = Post.objects.all()
 
-    arguments = {"arguments": list(map(lambda post: (post.pk, post.title, post.tagline), posts))}
+    arguments = {
+        "arguments": list(map(lambda post: (post.pk, post.title, post.tagline), posts)),
+        "loggedin": request.user.is_authenticated,
+    }
 
     return render(request, "blog/homepage.html", arguments)
 
@@ -31,6 +38,22 @@ def post(request, post_id):
             "post_content": post.content,
             "post_comments_arguments": comments_arguments,
             "post_comment_form": comment_form,
+            "loggedin": request.user.is_authenticated,
     }
 
     return render(request, "blog/post.html", arguments)
+
+def logout(request):
+    logout_user(request)
+    return redirect("/")
+
+def signup(request):
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login_user(request, user)
+            return redirect("/")
+    else:
+        form = UserCreationForm()
+    return render(request, "blog/signup.html", {"form": form})

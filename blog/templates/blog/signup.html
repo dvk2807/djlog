@@ -1,0 +1,22 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block title %}Signup{% endblock %}
+
+{% block styles %}{% endblock %}
+
+{% block content %}
+    <div class="box-header">
+        <h1>Signup</h1>
+    </div>
+
+    <hr class="box-hr">
+
+    <div class="box">
+        <form method="post" id="login_form">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit" class="button">Signup</button>
+        </form>
+    </div>
+{% endblock %}

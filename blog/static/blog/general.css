@@ -21,11 +21,6 @@ img{
 
 .navigation-button{
     padding: 8px;
-    
-    position: absolute;
-    top: 50%;
-    
-    transform: translateY(-50%);
 
     border: solid 1px #f0f0f0;
 

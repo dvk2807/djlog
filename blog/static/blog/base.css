@@ -10,18 +10,19 @@ body{
     grid-template-rows: 64px 1fr;
 }
 #navigation{
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+
     position: relative;
-    
+
     border-bottom: solid 1px #102040;
     
     background-color: #204080;
 }
-#home{
-    left: 16px;
-}
-#login{
-    right: 16px;
-}
+
 #content{
     width: 50%;
     margin: 32px auto 0 auto;

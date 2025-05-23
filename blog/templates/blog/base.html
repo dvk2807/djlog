@@ -15,7 +15,12 @@
     <div id="main">
         <div id="navigation">
             <a href="/"><div id="home" class="navigation-button">Home</div></a>
-            <a href="/admin"><div id="login" class="navigation-button">Login</div></a>
+            {% if not loggedin %}
+                <a href="/login"><div id="login" class="navigation-button">Login</div></a>
+                <a href="/signup"><div id="signup" class="navigation-button">Signup</div></a>
+            {% else %}
+                <a href="/logout"><div id="logout" class="navigation-button">Logout</div></a>
+            {% endif %}
         </div>
         <div id="content-wrapper">
             <div id="content">

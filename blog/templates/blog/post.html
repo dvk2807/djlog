@@ -19,12 +19,19 @@
         </div>
     </div>
 
+    <hr class="box-hr">
+
     <div class="box">
         {{ post_content | safe }}
     </div>
 
-    <div class="box">
+    <hr class="box-hr">
+
+    <div class="box-header">
         <h2>Leave a comment</h2>
+    </div>
+
+    <div class="box">
         <form method="post" id="comment-form">
             {% csrf_token %}
             {{ post_comment_form }}
